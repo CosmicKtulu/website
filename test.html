@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API</title>
+</head>
+
+<body>
+    <!-- display all titles and desc fron url using get api call -->
+    <div id="demo"></div>
+
+    <!-- test post -->
+    <form id="myForm" action="https://airprojectjnv2020.pythonanywhere.com/geeks/" method="post">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="description" placeholder="description">
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        // GET request using fetch()
+        fetch('https://airprojectjnv2020.pythonanywhere.com/geeks/')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                appendData(data);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+
+        function appendData(data) {
+            var mainContainer = document.getElementById("demo");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Title: ' + data[i].title + ' , Desc:' + data[i].description;
+                mainContainer.appendChild(div);
+            }
+        }
+
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault();  // Stop the form from submitting normally
+            var url = e.target.action;  // Get the URL from the form's action attribute
+
+            // Get form data
+            var data = new FormData(e.target);
+
+            // Use Fetch API to send a POST request
+            fetch(url, {
+                method: 'POST',
+                body: data
+            }).then(function(response) {
+                console.log(response);
+                if (response.ok) {
+                    alert('Form submitted successfully');
+                } else {
+                    alert('Error: ' + response.statusText);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
