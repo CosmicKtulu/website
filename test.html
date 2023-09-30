@@ -1,4 +1,4 @@
-{% extends "_includes/layout.html" %}
+{% extends "%_includes/layout.html" %}
 
 {% block title %}
 
@@ -36,9 +36,9 @@ Test API
         data[i].title + ' , Desc:' + data[i].description; mainContainer.appendChild(div); } }
         document.getElementById('myForm').addEventListener('submit', function(e) { e.preventDefault(); // Stop the form
         from submitting normally var url=e.target.action; // Get the URL from the form's action attribute // Get form
-        data var data=new FormData(e.target); // Use Fetch API to send a POST request fetch(url, { method: 'POST' ,
-        body: data }).then(function(response) { console.log(response); if (response.ok) { alert('Form submitted
-        successfully'); } else { alert('Error: ' + response.statusText);
+        data=new FormData(e.target); // Use Fetch API to send a POST request fetch(url, { method: 'POST' , body: data
+        }).then(function(response) { console.log(response); if (response.ok) { alert('Form submitted successfully'); }
+        else { alert('Error: ' + response.statusText);
                 }
             });
         });
