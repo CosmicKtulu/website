@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title>{{ page.title }}</title>
 </head>
 
 <body>
@@ -17,11 +17,11 @@
     </nav>
 
     <main>
-        {% block content %}{% endblock %}
+        {{ content }}
     </main>
 
     <footer>
-        <p>Copyright &copy; 2023 My Name</p>
+        <p>Copyright © 2023 My Name</p>
     </footer>
 </body>
 
