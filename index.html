@@ -79,10 +79,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/" class="nav-item nav-link active">Home</a>
-                <a href="team.html" class="nav-item nav-link">Team</a>
-                <a href="events.html" class="nav-item nav-link">Events</a>
-                <a href="blogs.html" class="nav-item nav-link">Blogs</a>
+                <a id="nav-home" href="/" class="nav-item nav-link">Home</a>
+                <a id="nab-team" href="team.html" class="nav-item nav-link">Team</a>
+                <a id="nav-events" href="events.html" class="nav-item nav-link">Events</a>
+                <a id="nav-blogs" href="blogs.html" class="nav-item nav-link">Blogs</a>
 
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -630,6 +630,11 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- JS -->
+    <script>
+        document.getElementById("nav-home").classList.add("active");
+    </script>
 </body>
 
 </html>
